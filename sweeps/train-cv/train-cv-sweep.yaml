@@ -1,0 +1,10 @@
+method: random
+metric:
+  goal: maximize
+  name: score
+parameters:
+  alpha:
+    distribution: uniform
+    max: 2.0
+    min: 0.0
+program: train-cv.py
