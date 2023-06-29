@@ -10,10 +10,17 @@ Starting locally, create a python script.  The requirements of this script are d
 
 ```:python
 import wandb
-wandb.init(config = dict(a = 0.5))
+import numpy as np
+wandb.init(config = dict(a = 0.5, N = 10))
 a = wandb.config.a
-for i in range(10):
-  wandb.log(dict( S = (1 - a**i)/(1 - a)))
+for i in range(wandb.config.N):
+  S_N = (1 - a**i) / (1 - a)
+  wandb.log(dict( S_N = S_N) )
+  if np.abs(a) < 1:
+    err = 1 / (1 - a) - S_N
+  else:
+    err = np.infty
+  wandb.log({"error": err})
 wandb.finish()
 ```
 
@@ -24,7 +31,7 @@ Next up, let’s create a dockerfile.  What is below is what I found to work wel
 
 ```
 FROM python:3.8
-RUN pip install wandb
+RUN pip install wandb numpy
 COPY ./geo.py /tmp/geo.py
 RUN chmod 777 /tmp/geo.py
 ENTRYPOINT [ "python","/tmp/geo.py"]
