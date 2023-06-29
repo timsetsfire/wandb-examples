@@ -1,4 +1,5 @@
 import wandb
+import numpy as np
 wandb.init(config = dict(a = 0.5, N = 10))
 a = wandb.config.a
 for i in range(wandb.config.N):
