@@ -8,18 +8,20 @@ The purpose of this document is to help people get started with launch by walkin
 * Create a repository on Dockerhub. You will push docker your image you build locally to Dockerhub and make it available for Launch. 
 Write your python script, or use [this one](./geo.py)
 
-Starting locally, create a python script.  The requirements of this script are dead simple.  It should log stuff to wandb.  Nothing fancy is required at this point, in fact, i think the simpler the better.  It is a matter of understanding how this works, and not having some complicated python scripts.  Start with 
+Starting locally, create a python script.  The requirements of this script are dead simple.  It should log stuff to wandb.  Nothing fancy is required at this point, in fact, i think the simpler the better.  It is a matter of understanding how this works, and not having some complicate python script.  The example provided logs the sequences of partial sums for a geometric series as well as the error.
 
 ```:python
 import wandb
 import numpy as np
-wandb.init(config = dict(a = 0.5, N = 10))
+wandb.init(config = dict(r = 1, a = 0.5, N = 10))
 a = wandb.config.a
+r = wandb.config.r
 for i in range(wandb.config.N):
   S_N = (1 - a**i) / (1 - a)
+  S_N *= r
   wandb.log(dict( S_N = S_N) )
   if np.abs(a) < 1:
-    err = 1 / (1 - a) - S_N
+    err = r / (1 - a) - S_N
   else:
     err = np.infty
   wandb.log({"error": err})
