@@ -4,7 +4,7 @@ The purpose of this document is to help people get started with launch by walkin
 
 ## Prerequisites
 * Have Docker installed locally
-* Get an account on Dockerhub.  Once you have an account on Dockerhub, Go to account settings then security and create a new API token.  You will be instructed to login to Dockerhub locally. 
+* Get an account on [Dockerhub](https://hub.docker.com/).  Once you have an account on Dockerhub, Go to account settings then security and create a new API token.  You will be instructed to login to Dockerhub locally. 
 * Create a repository on Dockerhub. You will push docker images you build locally to Dockerhub and make it available for Launch. 
 Write your python script
 
