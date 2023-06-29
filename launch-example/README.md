@@ -26,7 +26,7 @@ wandb.finish()
 
 This is just logging the sequence of partial sums for a geometric series with seed `a`.  Name this `geo.py`.  
 
-# Create you Dockerfile
+# Create your Dockerfile
 Next up, let’s create a dockerfile.  What is below is what I found to work well.  Start with some simple base image (python:3.8), pip install all of our python requirements, copy our main.py file over to the image via the COPY statement.  Lastly, make sure we the file accessible regardless of who is running the image.
 
 ```
@@ -45,7 +45,7 @@ docker build -t my-dockerhub-username/my-dockerhub-repo
 
 The argument `-t` stands for tag and is used to set the image name and optionally a tag.  In the command above the name will be `my-dockerhub-username/my-dockerhub-repo`.  No tag was specified.  You should replace `my-dockerhub-username/my-dockerhub-repo accordingly`.
 
-# Test the Docker Image
+# Test your Docker Image
 Next, run the image to test it out.  
 ```
 docker run -e WANDB_PROJECT=test-project -e WANDB_DOCKER=my-dockerhub-username/my-dockerhub-repo
