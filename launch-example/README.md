@@ -5,8 +5,8 @@ The purpose of this document is to help people get started with launch by walkin
 ## Prerequisites
 * Have Docker installed locally
 * Get an account on [Dockerhub](https://hub.docker.com/).  Once you have an account on Dockerhub, Go to account settings then security and create a new API token.  You will be instructed to login to Dockerhub locally. 
-* Create a repository on Dockerhub. You will push docker images you build locally to Dockerhub and make it available for Launch. 
-Write your python script
+* Create a repository on Dockerhub. You will push docker your image you build locally to Dockerhub and make it available for Launch. 
+Write your python script, or use [this one](./geo.py)
 
 Starting locally, create a python script.  The requirements of this script are dead simple.  It should log stuff to wandb.  Nothing fancy is required at this point, in fact, i think the simpler the better.  It is a matter of understanding how this works, and not having some complicated python scripts.  Start with 
 
